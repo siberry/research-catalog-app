@@ -1,0 +1,11 @@
+@import '~@nypl/design-system-react-components/dist/styles.css';
+@import '~@nypl/dgx-header-component/dist/styles/main';
+@import '~@nypl/dgx-react-footer/dist/styles/styles';
+
+.hero--secondary .hero__content .hero__heading::before {
+  background: #377F8B;
+}
+
+main.main-content {
+  padding: 0 var(--space);
+}
