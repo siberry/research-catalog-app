@@ -4,13 +4,10 @@ import SearchBar from '../../components/SearchBar/SearchBar';
 import ResultsList from '../../components/ResultsList/ResultsList';
 
 export default function Search({ searchResults }) {
-  console.log('searchResults', searchResults);
-  const router = useRouter();
-  console.log('index router', router);
   return (
     <>
       <SearchBar />
-      {/*<ResultsList results={[]} />*/}
+      <ResultsList results={searchResults.itemListElement} />
     </>
   )
 }
