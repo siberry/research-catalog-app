@@ -2,12 +2,15 @@ import '../styles/main.scss'
 import { Header, navConfig } from '@nypl/dgx-header-component';
 import { Breadcrumbs, Hero, HeroTypes, Heading } from '@nypl/design-system-react-components';
 
-function MyApp({ Component, pageProps }) {
+import { requireUser, getPatronData } from '../utils/auth';
+
+function MyApp({ Component, pageProps, patron }) {
   return (
     <div>
       <Header
         skipNav={{ target: 'main-content' }}
         navData={navConfig.current}
+        patron={patron}
       />
       <div className="nypl-ds nypl--research ">
         <Breadcrumbs breadcrumbs={[{ url: "#", text: "Home" }]} />
@@ -28,6 +31,17 @@ function MyApp({ Component, pageProps }) {
       </div>
     </div>
   )
+}
+
+export async function getServerSideProps({ req, res }) {
+  // const patron = await getPatronData(req, res);
+
+  // Pass patron data to the page via props
+  return {
+    props: {
+      // patron,
+    },
+  }
 }
 
 export default MyApp
